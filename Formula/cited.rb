@@ -3,8 +3,8 @@ class Cited < Formula
 
   desc "CLI for the Cited GEO platform"
   homepage "https://youcited.com"
-  url "https://github.com/YouCited/cited-cli/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "8b10c170b01c14025f46a9442a499a7a7aaaae6d53538e781fe81f69a4b77c45"
+  url "https://github.com/YouCited/cited-cli/archive/refs/tags/v0.3.1.tar.gz"
+  sha256 "e48bc013a4081d1e11f4b57c1c2fd4a467625553aee20a3f503d3709d44ea4e8"
   license "Proprietary"
 
   depends_on "python@3.12"
