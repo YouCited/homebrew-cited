@@ -4,7 +4,7 @@ class Cited < Formula
   desc "CLI for the Cited GEO platform"
   homepage "https://youcited.com"
   url "https://github.com/YouCited/cited-cli/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
+  sha256 "683ea086df65c4993d70070ae18eb7fef1882505b904bf15134e1b44a8011bbd"
   license "Proprietary"
 
   depends_on "python@3.12"
