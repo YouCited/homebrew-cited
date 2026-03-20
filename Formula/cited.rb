@@ -3,8 +3,8 @@ class Cited < Formula
 
   desc "CLI for the Cited GEO platform"
   homepage "https://youcited.com"
-  url "https://github.com/YouCited/cited-cli/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "683ea086df65c4993d70070ae18eb7fef1882505b904bf15134e1b44a8011bbd"
+  url "https://github.com/YouCited/cited-cli/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "5038709700150f2664db71d062988dc8d0e0ea7ce716a10bfc5edcea3efa0ced"
   license "Proprietary"
 
   depends_on "python@3.12"
@@ -125,16 +125,15 @@ class Cited < Formula
     sha256 "e39b4732d65fbdcde189ae76cf7cd48aeae72919dea1fdfc16593be016256b45"
   end
 
-  resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
-    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
-  end
-
   resource "typing-inspection" do
     url "https://files.pythonhosted.org/packages/55/e3/70399cb7dd41c10ac53367ae42139cf4b1ca5f36bb3dc6c9d33acdb43655/typing_inspection-0.4.2.tar.gz"
     sha256 "ba561c48a67c5958007083d386c3295464928b01faa735ab8547c5692e87f464"
   end
 
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
+    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
+  end
   def install
     virtualenv_install_with_resources
   end
