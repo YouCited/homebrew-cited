@@ -3,8 +3,8 @@ class Cited < Formula
 
   desc "CLI for the Cited GEO platform"
   homepage "https://youcited.com"
-  url "https://github.com/YouCited/cited-cli/archive/refs/tags/v0.3.3.tar.gz"
-  sha256 "7a838d35b3c8c8c56ec241f289fbeb371abea3ec467d607d696163d544f42b3c"
+  url "https://github.com/YouCited/cited-cli/archive/refs/tags/v0.3.4.tar.gz"
+  sha256 "51edd5d67622f0e4725747912579cc3806dde0ea01cd841821c428a7dd8ddf54"
   license "Proprietary"
 
   depends_on "python@3.12"
@@ -30,9 +30,14 @@ class Cited < Formula
     sha256 "e887ab5cee78ea814d3472169153c2d12cd43b14bd03329a39a9c6e2e80bfba7"
   end
 
+  resource "cited-core" do
+    url "https://files.pythonhosted.org/packages/ea/1e/3e10d133799718a6ebc108d1401fb024eef8027d76c33105191958afe3a6/cited_core-0.3.4.tar.gz"
+    sha256 "bbc4ae1cf4ccd5ae25b0056b1a31038529d2879c4750505fd8d3a3cc95fe8ff0"
+  end
+
   resource "click" do
-    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
-    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
+    url "https://files.pythonhosted.org/packages/57/75/31212c6bf2503fdf920d87fee5d7a86a2e3bcf444984126f13d8e4016804/click-8.3.2.tar.gz"
+    sha256 "14162b8b3b3550a7d479eafa77dfd3c38d9dc8951f6f69c78913a8f9a7540fd5"
   end
 
   resource "h11" do
@@ -86,8 +91,8 @@ class Cited < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/ea/5d/38b681d3fce7a266dd9ab73c66959406d565b3e85f21d5e66e1181d93721/more_itertools-10.8.0.tar.gz"
-    sha256 "f638ddf8a1a0d134181275fb5d58b086ead7c6a72429ad725c67503f13ba30bd"
+    url "https://files.pythonhosted.org/packages/a2/f7/139d22fef48ac78127d18e01d80cf1be40236ae489769d17f35c3d425293/more_itertools-11.0.2.tar.gz"
+    sha256 "392a9e1e362cbc106a2457d37cabf9b36e5e12efd4ebff1654630e76597df804"
   end
 
   resource "pydantic" do
