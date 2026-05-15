@@ -3,8 +3,8 @@ class Cited < Formula
 
   desc "CLI for the Cited GEO platform"
   homepage "https://youcited.com"
-  url "https://github.com/YouCited/cited-cli/archive/refs/tags/v0.3.15.tar.gz"
-  sha256 "00436e1b0b9ccb5206cabd66acabe6e3a09e60f3cf7d77763edc11424f203677"
+  url "https://github.com/YouCited/cited-cli/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "8941321ae05f62b53addab3f71e5cce2ea490746695beaad6a62a2b47ff3a354"
   license "Proprietary"
 
   depends_on "python@3.12"
@@ -31,8 +31,8 @@ class Cited < Formula
   end
 
   resource "cited-core" do
-    url "https://files.pythonhosted.org/packages/04/a1/72f37fbbc4e18eec22e9b3d3b63eb0452910a3c4cca67b7e2b1bec66abba/cited_core-0.3.15.tar.gz"
-    sha256 "3886b3b9ee32560004770b27b214aef5f4b5bdd6d3833729855f6cc21302c5ec"
+    url "https://files.pythonhosted.org/packages/f0/65/014835d11a485117fe37bd29929ee6ca724739270b4145ad6a25607d9511/cited_core-0.5.0.tar.gz"
+    sha256 "af1bc6e5c7764f817a52502ab9fda66e02eb9bae5236487a005544d5ddd79c4a"
   end
 
   resource "click" do
@@ -56,8 +56,8 @@ class Cited < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/ce/cc/762dfb036166873f0059f3b7de4565e1b5bc3d6f28a414c13da27e442f99/idna-3.13.tar.gz"
-    sha256 "585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"
+    url "https://files.pythonhosted.org/packages/82/77/7b3966d0b9d1d31a36ddf1746926a11dface89a83409bf1483f0237aa758/idna-3.15.tar.gz"
+    sha256 "ca962446ea538f7092a95e057da437618e886f4d349216d2b1e294abfdb65fdc"
   end
 
   resource "jaraco-classes" do
@@ -81,8 +81,8 @@ class Cited < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/5b/f5/4ec618ed16cc4f8fb3b701563655a69816155e79e24a17b651541804721d/markdown_it_py-4.0.0.tar.gz"
-    sha256 "cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3"
+    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
+    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
   end
 
   resource "mdurl" do
@@ -96,13 +96,13 @@ class Cited < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/d9/e4/40d09941a2cebcb20609b86a559817d5b9291c49dd6f8c87e5feffbe703a/pydantic-2.13.3.tar.gz"
-    sha256 "af09e9d1d09f4e7fe37145c1f577e1d61ceb9a41924bf0094a36506285d0a84d"
+    url "https://files.pythonhosted.org/packages/18/a5/b60d21ac674192f8ab0ba4e9fd860690f9b4a6e51ca5df118733b487d8d6/pydantic-2.13.4.tar.gz"
+    sha256 "c40756b57adaa8b1efeeced5c196f3f3b7c435f90e84ea7f443901bec8099ef6"
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/2a/ef/f7abb56c49382a246fd2ce9c799691e3c3e7175ec74b14d99e798bcddb1a/pydantic_core-2.46.3.tar.gz"
-    sha256 "41c178f65b8c29807239d47e6050262eb6bf84eb695e41101e62e38df4a5bc2c"
+    url "https://files.pythonhosted.org/packages/9d/56/921726b776ace8d8f5db44c4ef961006580d91dc52b803c489fafd1aa249/pydantic_core-2.46.4.tar.gz"
+    sha256 "62f875393d7f270851f20523dd2e29f082bcc82292d66db2b64ea71f64b6e1c1"
   end
 
   resource "pygments" do
