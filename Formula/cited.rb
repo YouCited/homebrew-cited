@@ -3,8 +3,8 @@ class Cited < Formula
 
   desc "CLI for the Cited GEO platform"
   homepage "https://youcited.com"
-  url "https://github.com/YouCited/cited-cli/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "8941321ae05f62b53addab3f71e5cce2ea490746695beaad6a62a2b47ff3a354"
+  url "https://github.com/YouCited/cited-cli/archive/refs/tags/v0.5.1.tar.gz"
+  sha256 "101d8e31a986bc9b040a58da07e074537aeca4054028688edc74e16d6a4573ff"
   license "Proprietary"
 
   depends_on "python@3.12"
@@ -31,13 +31,13 @@ class Cited < Formula
   end
 
   resource "cited-core" do
-    url "https://files.pythonhosted.org/packages/f0/65/014835d11a485117fe37bd29929ee6ca724739270b4145ad6a25607d9511/cited_core-0.5.0.tar.gz"
-    sha256 "af1bc6e5c7764f817a52502ab9fda66e02eb9bae5236487a005544d5ddd79c4a"
+    url "https://files.pythonhosted.org/packages/e4/94/6e3d5ba910956b85c897c15e041ab6b44e0f414e2a02e150b20b7818647a/cited_core-0.5.1.tar.gz"
+    sha256 "058e50899595c54b718cc6263a353e4fe3383ecaebb831aea3b51ee386e70d25"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
-    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
+    url "https://files.pythonhosted.org/packages/23/e4/796662cd90cf80e3a363c99db2b88e0e394b988a575f60a17e16440cd011/click-8.4.0.tar.gz"
+    sha256 "638f1338fe1235c8f4e008e4a8a254fb5c5fbdcbb40ece3c9142ebb78e792973"
   end
 
   resource "h11" do
@@ -71,8 +71,8 @@ class Cited < Formula
   end
 
   resource "jaraco-functools" do
-    url "https://files.pythonhosted.org/packages/0f/27/056e0638a86749374d6f57d0b0db39f29509cce9313cf91bdc0ac4d91084/jaraco_functools-4.4.0.tar.gz"
-    sha256 "da21933b0417b89515562656547a77b4931f98176eb173644c0d35032a33d6bb"
+    url "https://files.pythonhosted.org/packages/36/cf/ea4ef2920830dea3f5ab2ea4da6fb67724e6dca80ee2553788c3607243d0/jaraco_functools-4.5.0.tar.gz"
+    sha256 "3bb5665ea4a020cf78a7040e89154c77edadb3ca74f366479669c5999aa70b03"
   end
 
   resource "keyring" do
