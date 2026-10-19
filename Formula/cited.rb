@@ -3,8 +3,8 @@ class Cited < Formula
 
   desc "CLI for the Cited GEO platform"
   homepage "https://youcited.com"
-  url "https://github.com/YouCited/cited-cli/archive/refs/tags/v0.5.2.tar.gz"
-  sha256 "538d584f29798627900d0b9377309af317fb7e1cff4ff238f6118b4046349451"
+  url "https://github.com/YouCited/cited-cli/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "6b82427b45fea2dc6368b4b23838730e51c4dd55fa0cde53ce988caf4ac2db28"
   license "Proprietary"
 
   depends_on "python@3.12"
@@ -26,13 +26,13 @@ class Cited < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/a3/c2/24167ea9858356b47a87a50d39908bfdb72ceeefe0041586e704e5376b3a/certifi-2026.7.22.tar.gz"
-    sha256 "741e2c3b351ddf169a738da9f2c048608ff7f2c5cc02f1ebc6b118bb090d5d55"
+    url "https://files.pythonhosted.org/packages/7e/eb/a2aa1ac3ea30dd3f30ca57f40232138b6b0040719316ecb85daf61167771/certifi-2026.10.18.tar.gz"
+    sha256 "b9995d97b64d0431a5af837d8ca8cd6238104d1f319f04bd93ea43124d6c861e"
   end
 
   resource "cited-core" do
-    url "https://files.pythonhosted.org/packages/5b/dc/be05e362066784e65c1673c960e8484d23f5998befe280f19ab3681d4bcf/cited_core-0.5.2.tar.gz"
-    sha256 "4f7c4f6a3e112c3ec8db1541323d07b0c1ef9a585a66d9e03a2ee2e5fe5a646b"
+    url "https://files.pythonhosted.org/packages/83/b9/5f77f8857489b93f4a438421acf887ef09348d781d8f54f016d162ea58bf/cited_core-0.6.0.tar.gz"
+    sha256 "b845295afb9b9d5b35035cfe2ffd0834d9d090961087066747b651a11963a18a"
   end
 
   resource "h11" do
@@ -86,8 +86,8 @@ class Cited < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/55/e5/8735dc589d9e3571e76cd684e7763dc0fcc940b811f71640410458749689/more_itertools-11.2.0.tar.gz"
-    sha256 "59960f488835254863a857eb501f69e4ec92fdc8822f098c0f48dba530afd487"
+    url "https://files.pythonhosted.org/packages/52/b8/c63995bebbb9ac9c059350e0fb8c82c2420c85aeca7d34e40aecf3df9281/more_itertools-11.2.1.tar.gz"
+    sha256 "cbf08fd0af284dc69718b9b76a8e6203df624d70209ea511e4219d350c856f63"
   end
 
   resource "pydantic" do
