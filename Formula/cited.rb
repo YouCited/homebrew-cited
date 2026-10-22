@@ -3,8 +3,8 @@ class Cited < Formula
 
   desc "CLI for the Cited GEO platform"
   homepage "https://youcited.com"
-  url "https://github.com/YouCited/cited-cli/archive/refs/tags/v0.6.0.tar.gz"
-  sha256 "6b82427b45fea2dc6368b4b23838730e51c4dd55fa0cde53ce988caf4ac2db28"
+  url "https://github.com/YouCited/cited-cli/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "b07cc57450a14deefb9305848269e603fdd43f9986cf431b9a6de92003eff49f"
   license "Proprietary"
 
   depends_on "python@3.12"
@@ -26,13 +26,13 @@ class Cited < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/7e/eb/a2aa1ac3ea30dd3f30ca57f40232138b6b0040719316ecb85daf61167771/certifi-2026.10.18.tar.gz"
-    sha256 "b9995d97b64d0431a5af837d8ca8cd6238104d1f319f04bd93ea43124d6c861e"
+    url "https://files.pythonhosted.org/packages/a6/bd/1436c50cc46699de0230fbaacc1d1de7bfec413176099949e9d5112e88f2/certifi-2026.10.19.tar.gz"
+    sha256 "035c1e85572b141bf1c3a3eff0e33a8eb74917522f2559075ff8d2fea780a1ae"
   end
 
   resource "cited-core" do
-    url "https://files.pythonhosted.org/packages/83/b9/5f77f8857489b93f4a438421acf887ef09348d781d8f54f016d162ea58bf/cited_core-0.6.0.tar.gz"
-    sha256 "b845295afb9b9d5b35035cfe2ffd0834d9d090961087066747b651a11963a18a"
+    url "https://files.pythonhosted.org/packages/8a/5c/32488a1f59c3bfb2cf2ac1730dc67ee2c50949296d3714f06be2a5648240/cited_core-0.7.0.tar.gz"
+    sha256 "6d5926286357e52b703728c05556d400bff8474e1c19190809ad8af6dcaef3a5"
   end
 
   resource "h11" do
