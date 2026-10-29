@@ -38,12 +38,11 @@ jobs:
           EVENT: ${{ github.event_name }}
         run: |
           HAVE=$(sed -n 's|.*/archive/refs/tags/v\(.*\)\.tar\.gz".*|\1|p' Formula/cited.rb)
-          if [[ "$EVENT" == "pull_request" ]]; then
-            # Rebuild the current version to test the script and the install.
-            WANT="$HAVE"
-          elif [[ -n "$INPUT_VERSION" ]]; then
+          if [[ -n "$INPUT_VERSION" ]]; then
             WANT="${INPUT_VERSION#v}"
           else
+            # On a PR this rebuilds the latest release as a dry run. An older
+            # version would resolve a newer cited-core and report its version.
             WANT=$(curl -sf https://pypi.org/pypi/cited-cli/json \
               | python3 -c 'import json, sys; print(json.load(sys.stdin)["info"]["version"])')
           fi
