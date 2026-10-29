@@ -3,12 +3,11 @@ class Cited < Formula
 
   desc "CLI for the Cited GEO platform"
   homepage "https://youcited.com"
-  url "https://github.com/YouCited/cited-cli/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "11533a97a52c590a461fa1dd6db534757d90750cac7974ad226ab41a6d15badc"
+  url "https://github.com/YouCited/cited-cli/archive/refs/tags/v0.8.1.tar.gz"
+  sha256 "39edf84d5a78ef01fec57deeb9da74988ae3de49cb284bc99ddc384ee7e4e17c"
   license "Proprietary"
 
   depends_on "python@3.12"
-
 
   resource "annotated-doc" do
     url "https://files.pythonhosted.org/packages/5a/8e/38aa427ed5402449e226975b649c5dc73ccadfefeb95e6aecb8f8ea4b6b6/annotated_doc-0.0.5.tar.gz"
@@ -26,8 +25,8 @@ class Cited < Formula
   end
 
   resource "cited-core" do
-    url "https://files.pythonhosted.org/packages/40/c9/a887ca8b82f9d349eae310812b261a53555934ff64d0a7e6190d06158929/cited_core-0.8.0.tar.gz"
-    sha256 "254d074a4822fa6fcd39e64ade254d4a08bb9a419146c3fca8f45d7a54ca06b4"
+    url "https://files.pythonhosted.org/packages/d5/8e/4ed66cf84f01210fbd4355e36e53075b4102655f1a11d30a014b48fde82a/cited_core-0.8.1.tar.gz"
+    sha256 "a462c3da7ba4b9442d7da82fa5f00d8475929d55595c98ca52dc37df9e522ec6"
   end
 
   resource "h11" do
@@ -109,6 +108,12 @@ class Cited < Formula
     url "https://files.pythonhosted.org/packages/03/51/d33db42cc72ffd8c30777547b42d01f0cbf9d95a770457698d0174b3ed71/typer-0.27.3.tar.gz"
     sha256 "d0396f770a560ab1b0a8504e13b5f254b728cedb05c61cf0359e944e50ce8901"
   end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
+    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
+  end
+
   def install
     virtualenv_install_with_resources
   end
