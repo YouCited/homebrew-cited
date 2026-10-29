@@ -70,7 +70,14 @@ def resolved_packages(tarball: Path, workdir: Path) -> list[tuple[str, str]]:
     venv.create(env_dir, with_pip=True)
     python = env_dir / "bin" / "python"
     subprocess.run([python, "-m", "pip", "install", "--quiet", "--upgrade", "pip"], check=True)
-    subprocess.run([python, "-m", "pip", "install", "--quiet", str(tarball)], check=True)
+    # Right after a release, PyPI's index can lag the upload of cited-core.
+    for attempt in range(10):
+        install = [python, "-m", "pip", "install", "--quiet", "--no-cache-dir", str(tarball)]
+        if subprocess.run(install).returncode == 0:
+            break
+        if attempt == 9:
+            raise SystemExit("pip could not install the release after 10 tries")
+        time.sleep(30)
     listed = subprocess.run(
         [python, "-m", "pip", "list", "--format=json"],
         check=True,
