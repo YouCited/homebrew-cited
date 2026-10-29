@@ -73,7 +73,7 @@ def resolved_packages(tarball: Path, workdir: Path) -> list[tuple[str, str]]:
     # Right after a release, PyPI's index can lag the upload of cited-core.
     for attempt in range(10):
         install = [python, "-m", "pip", "install", "--quiet", "--no-cache-dir", str(tarball)]
-        if subprocess.run(install).returncode == 0:
+        if subprocess.run(install, check=False).returncode == 0:
             break
         if attempt == 9:
             raise SystemExit("pip could not install the release after 10 tries")
