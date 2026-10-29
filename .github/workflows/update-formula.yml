@@ -1,0 +1,98 @@
+name: Update formula
+
+# Rebuilds Formula/cited.rb when a new cited-cli is on PyPI, installs and tests
+# it with Homebrew on macOS, and commits it only if that passes. Replaces the
+# formula steps of release.sh, so a release needs no laptop.
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "cited-cli version (blank = latest on PyPI)"
+        required: false
+  pull_request:
+    paths:
+      - "scripts/**"
+      - ".github/workflows/update-formula.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-formula
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.v.outputs.version }}
+      needed: ${{ steps.v.outputs.needed }}
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - id: v
+        env:
+          INPUT_VERSION: ${{ inputs.version }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          HAVE=$(sed -n 's|.*/archive/refs/tags/v\(.*\)\.tar\.gz".*|\1|p' Formula/cited.rb)
+          if [[ "$EVENT" == "pull_request" ]]; then
+            # Rebuild the current version to test the script and the install.
+            WANT="$HAVE"
+          elif [[ -n "$INPUT_VERSION" ]]; then
+            WANT="${INPUT_VERSION#v}"
+          else
+            WANT=$(curl -sf https://pypi.org/pypi/cited-cli/json \
+              | python3 -c 'import json, sys; print(json.load(sys.stdin)["info"]["version"])')
+          fi
+          [[ "$WANT" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "Bad version: $WANT"; exit 1; }
+          NEEDED=false
+          if [[ "$WANT" != "$HAVE" || "$EVENT" != "schedule" ]]; then NEEDED=true; fi
+          echo "Formula has $HAVE, want $WANT, update: $NEEDED"
+          echo "version=$WANT" >> "$GITHUB_OUTPUT"
+          echo "needed=$NEEDED" >> "$GITHUB_OUTPUT"
+
+  update:
+    needs: check
+    if: needs.check.outputs.needed == 'true'
+    runs-on: macos-latest
+    env:
+      VERSION: ${{ needs.check.outputs.version }}
+      HOMEBREW_NO_AUTO_UPDATE: "1"
+      HOMEBREW_NO_INSTALL_FROM_API: "1"
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12"
+
+      - name: Regenerate the formula
+        run: |
+          python scripts/update_formula.py "$VERSION"
+          git diff --stat
+
+      - name: Install and test it with Homebrew
+        run: |
+          brew tap youcited/cited
+          cp Formula/cited.rb "$(brew --repo youcited/cited)/Formula/cited.rb"
+          brew trust --formula youcited/cited/cited 2>/dev/null || true
+          brew install --build-from-source youcited/cited/cited
+          brew test youcited/cited/cited
+          cited --version | grep -F "$VERSION"
+          cited --json audit free youcited.com --no-wait
+
+      - name: Commit
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: |
+          git add Formula/cited.rb
+          if git diff --cached --quiet; then
+            echo "Formula already at v$VERSION"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "formula: update cited to v$VERSION"
+          git push origin HEAD:main

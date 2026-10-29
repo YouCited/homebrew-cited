@@ -20,3 +20,7 @@ brew upgrade cited
 ## Source
 
 https://github.com/YouCited/cited-cli
+
+## Updates
+
+`Formula/cited.rb` is generated, so don't edit it by hand. Every 30 minutes the "Update formula" workflow checks PyPI for a newer cited-cli. When it finds one, it regenerates the formula with `scripts/update_formula.py` (on macOS, with Python 3.12), then runs `brew install` and `brew test` and a free audit on a macOS runner, and commits the formula only if they pass. To update right away, run the workflow from the Actions tab, optionally with a version.
