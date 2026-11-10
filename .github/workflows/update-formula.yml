@@ -3,9 +3,15 @@ name: Update formula
 # Rebuilds Formula/cited.rb when a new cited-cli is on PyPI, installs and tests
 # it with Homebrew on macOS, and commits it only if that passes. Replaces the
 # formula steps of release.sh, so a release needs no laptop.
+#
+# cited-cli's release workflow starts this one as soon as a release is on PyPI
+# (workflow_dispatch, with the HOMEBREW_TAP_TOKEN secret there). The schedule
+# is only a backstop. It runs every 6 hours, not every 30 minutes, because a
+# scheduled run that GitHub fails to start during an Actions outage still
+# emails a "Run failed ... No jobs were run" notice.
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "17 */6 * * *"
   workflow_dispatch:
     inputs:
       version:
